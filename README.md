@@ -1,4 +1,4 @@
-#CityQuest
+# DenTravak Webshop
 Dit is de source code voor DenTravak, een simpele shop.
 
 ## Backend
