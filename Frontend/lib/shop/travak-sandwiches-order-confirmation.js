@@ -1,4 +1,4 @@
-import DenTravakAbstractElement from './travak-abstract-element.js';
+import DenTravakAbstractElement from '../travak-abstract-element.js';
 
 class DenTravakSandwichesOrderConfirmation extends DenTravakAbstractElement {
 

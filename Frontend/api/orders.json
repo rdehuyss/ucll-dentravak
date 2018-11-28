@@ -1,0 +1,20 @@
+[
+    {
+        "id": "a UUID",
+        "sandwichId": "the sandwich UUID",
+        "name": "Martino",
+        "breadType": "TURKS_BROOD",
+        "creationDate": "2018-11-28T13:33:24.872",
+        "price": 4.5,
+        "mobilePhoneNumber": "0487\/123456"
+    },
+    {
+        "id": "a UUID",
+        "sandwichId": "the sandwich UUID",
+        "name": "Smoske",
+        "breadType": "BOTERHAMMEKES",
+        "creationDate": "2018-11-28T12:35:24.872",
+        "price": 3.5,
+        "mobilePhoneNumber": "0487\/654321"
+    }
+]

@@ -1,5 +1,10 @@
 export default class DenTravakAbstractElement extends HTMLElement {
 
+    constructor(appName = "travak-app") {
+        super();
+        this.appName = appName;
+    }
+
     connectedCallback() {
         this.initShadowDom();
     }
@@ -13,7 +18,7 @@ export default class DenTravakAbstractElement extends HTMLElement {
     }
 
     app() {
-        return document.querySelector('travak-app');
+        return document.querySelector(this.appName);
     }
 
     byId(id) {
