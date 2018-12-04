@@ -16,6 +16,10 @@ public class SandwichTestBuilder {
         return new SandwichTestBuilder();
     }
 
+    public static SandwichTestBuilder aDefaultSandwich() {
+        return aSandwich().withName("Americain").withIngredients("Vlees").withPrice(4.0);
+    }
+
     public SandwichTestBuilder withName(String name) {
         this.name = name;
         return this;

@@ -44,13 +44,21 @@ public abstract class AbstractControllerIntegrationTest {
     }
 
     protected String httpPost(String url, Object obj) {
+        return httpRequest(url, obj, HttpMethod.POST);
+    }
+
+    protected String httpPut(String url, Object obj) {
+        return httpRequest(url, obj, HttpMethod.PUT);
+    }
+
+    protected String httpRequest(String url, Object obj, HttpMethod method) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             HttpEntity<String> entity = new HttpEntity<String>(mapper.writeValueAsString(obj), headers);
 
             ResponseEntity<String> response = restTemplate.exchange(
                     createURLWithPort(url),
-                    HttpMethod.POST, entity, String.class);
+                    method, entity, String.class);
 
             return response.getBody();
         } catch (JsonProcessingException e) {

@@ -2,10 +2,9 @@ package be.ucll.da.dentravak.controllers;
 
 import be.ucll.da.dentravak.model.Sandwich;
 import be.ucll.da.dentravak.repositories.SandwichRepository;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 public class SandwichController {
@@ -23,6 +22,12 @@ public class SandwichController {
 
     @RequestMapping(value = "/sandwiches", method = RequestMethod.POST)
     public Sandwich createSandwich(@RequestBody Sandwich sandwich) {
+        return repository.save(sandwich);
+    }
+
+    @RequestMapping(value = "/sandwiches/{id}", method = RequestMethod.PUT)
+    public Sandwich updateSandwich(@PathVariable UUID id, @RequestBody Sandwich sandwich) {
+        if(!id.equals(sandwich.getId())) throw new IllegalArgumentException("Nownow, are you trying to hack us.");
         return repository.save(sandwich);
     }
 

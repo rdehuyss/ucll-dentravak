@@ -14,11 +14,13 @@
     <!-- Leaflet Maps CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
 
+    <script src="https://github.com/MrSwitch/hello.js/raw/master/dist/hello.all.min.js"></script>
     <title>Den Travak</title>
   </head>
   <body>
       <div class="container">
           <travak-app></travak-app>
+          <button onclick="hello('google').login()">Google</button>
       </div>
 
     <!-- Optional JavaScript -->
@@ -29,6 +31,18 @@
     <script src="https://unpkg.com/navigo@6"></script>
     <script src="./lib/utils.js"></script>
     <script type="module" src="./lib/shop/travak-app.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) { 
+        //do work
+            hello.init({
+                google: 838955118414-tnrhphckl482a0b005dm7l5q3cirrseq.apps.googleusercontent.com
+            }, 
+            {redirect_uri: '/'});
+        });
+        
+    </script>
+
     <template id="styletemplate">
         <style>
             @import url('https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css');
