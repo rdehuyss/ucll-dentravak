@@ -1,4 +1,14 @@
 spring:
+  application:
+    name: dentravak
+  cloud:
+    consul:
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        healthCheckPath: /health-check
+        healthCheckInterval: 20s
+---
+spring:
   profiles: container
   datasource:
     url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}?autoReconnect=true&failOverReadOnly=false&maxReconnects=10&allowPublicKeyRetrieval=true&useSSL=false

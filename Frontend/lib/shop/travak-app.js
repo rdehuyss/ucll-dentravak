@@ -1,6 +1,7 @@
 import DenTravakAbstractElement from '../travak-abstract-element.js';
 import './travak-sandwiches-list.js';
 import './travak-sandwiches-checkout.js';
+import './travak-sandwiches-login.js';
 import './travak-sandwiches-order-confirmation.js';
 
 class DenTravakApp extends DenTravakAbstractElement {
@@ -44,6 +45,7 @@ class DenTravakApp extends DenTravakAbstractElement {
             </style>
             <travak-sandwiches-list></travak-sandwiches-list>
             <travak-sandwiches-checkout></travak-sandwiches-checkout>
+            <travak-sandwiches-login></travak-sandwiches-login>
             <travak-sandwiches-order-confirmation></travak-sandwiches-order-confirmation>
         `;
     }

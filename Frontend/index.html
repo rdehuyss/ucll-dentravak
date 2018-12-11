@@ -14,33 +14,52 @@
     <!-- Leaflet Maps CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
 
-    <script src="https://github.com/MrSwitch/hello.js/raw/master/dist/hello.all.min.js"></script>
     <title>Den Travak</title>
-  </head>
-  <body>
-      <div class="container">
-          <travak-app></travak-app>
-          <button onclick="hello('google').login()">Google</button>
-      </div>
-
+</head>
+<body>
+    <div id="profile_google">
+        Hier komt google info
+    </div>
+    <div id="profile_facebook">
+            Hier komt google info
+        </div>
+    <div class="container">
+        <travak-app></travak-app>
+    </div>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/hellojs@2.0.0-4/dist/hello.all.js"></script>
     <script src="https://unpkg.com/navigo@6"></script>
     <script src="./lib/utils.js"></script>
     <script type="module" src="./lib/shop/travak-app.js"></script>
     
     <script>
         document.addEventListener("DOMContentLoaded", function(event) { 
-        //do work
             hello.init({
-                google: 838955118414-tnrhphckl482a0b005dm7l5q3cirrseq.apps.googleusercontent.com
+                google: '1057926536663-tbli0v14pflaj2hap7ovmg0dg2ivjtkn.apps.googleusercontent.com',
+                facebook: '269925680542173'
             }, 
-            {redirect_uri: '/'});
+            {scope: 'email', redirect_uri: '/'});
+
+            hello.on('auth.login', function(auth) {
+
+            // Call user information, for the given network
+            hello(auth.network).api('me').then(function(r) {
+                // Inject it into the container
+                var label = document.getElementById('profile_' + auth.network);
+                if (!label) {
+                    label = document.createElement('div');
+                    label.id = 'profile_' + auth.network;
+                    document.getElementById('profile').appendChild(label);
+                }
+                label.innerHTML = '<img src="' + r.thumbnail + '" /> Hey ' + r.name;
+            });
+            });
         });
-        
     </script>
 
     <template id="styletemplate">
