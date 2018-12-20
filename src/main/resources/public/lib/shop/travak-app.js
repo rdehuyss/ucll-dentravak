@@ -31,8 +31,8 @@ class DenTravakApp extends DenTravakAbstractElement {
         this.byCss(`travak-sandwiches-order-confirmation`).classList.add('hidden');
     }
 
-    showOrderConfirmationPage(sandwich) {
-        this.byCss(`travak-sandwiches-order-confirmation`).init(sandwich);
+    showOrderConfirmationPage(order) {
+        this.byCss(`travak-sandwiches-order-confirmation`).init(order);
         this.byCss(`travak-sandwiches-list`).classList.add('hidden');
         this.byCss(`travak-sandwiches-checkout`).classList.add('hidden');
         this.byCss(`travak-sandwiches-order-confirmation`).classList.remove('hidden');
@@ -45,7 +45,6 @@ class DenTravakApp extends DenTravakAbstractElement {
             </style>
             <travak-sandwiches-list></travak-sandwiches-list>
             <travak-sandwiches-checkout></travak-sandwiches-checkout>
-            <travak-sandwiches-login></travak-sandwiches-login>
             <travak-sandwiches-order-confirmation></travak-sandwiches-order-confirmation>
         `;
     }

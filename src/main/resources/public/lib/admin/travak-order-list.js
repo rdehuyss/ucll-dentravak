@@ -8,7 +8,7 @@ class DenTravakOrderList extends DenTravakAbstractElement {
 
     connectedCallback() {
         super.connectedCallback();
-        fetch('/api/orders.json')
+        fetch('/den-travak/api/orders.json')
             .then(resp => resp.json())
             .then(json => this.updateOrderList(json));
         this.initEventListeners();

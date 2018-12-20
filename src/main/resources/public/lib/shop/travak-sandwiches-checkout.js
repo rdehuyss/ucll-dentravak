@@ -20,7 +20,9 @@ class DenTravakSandwichesCheckout extends DenTravakAbstractElement {
 
     orderSandwich() {
         //todo: call backend via fetch api
-        this.app().dispatchEvent(new CustomEvent('order-succeeded', {detail: this.sandwich}));
+        let order = {};
+        order.phoneNumber = '012345677';
+        this.app().dispatchEvent(new CustomEvent('order-succeeded', {detail: order}));
     }
 
     get template() {
